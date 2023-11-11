@@ -1,10 +1,12 @@
 # Function to print all facts
 def print_facts(fact_list):
+    print("\nFacts:")
     for fact in fact_list:
         print(fact)
         
 # Function to print all rules
 def print_rules(rule_list):
+    print("\nRules:")
     for rule in rule_list:
         premise, conclusion = rule
         print(f"if {premise}, then {conclusion}")
@@ -23,43 +25,44 @@ def is_condition_satisfied(premise, facts):
 # Function to perform forward chaining
 def forward_chaining(initial_facts, rules):
     facts = initial_facts.copy()
-    # print("\nNew Facts: ")
+
+    print("\nNew Facts: ")
+    new_facts = []
     while True:
         newly_derived_facts = []
-        
 
         for rule in rules:
             premise, conclusion = rule
             if is_condition_satisfied(premise, facts) and conclusion not in facts:
                 newly_derived_facts.append(conclusion)
                 facts.append(conclusion)
+                
+        new_facts.extend(newly_derived_facts)
+            
 
         if not newly_derived_facts:
-            break
+            break   
 
+    print("\n".join(map(str, new_facts)))
     return facts # To update facts
 
 
 if __name__ == "__main__":
-    # Initialize existing facts and rules
+    # Initialize facts and rules
     facts = []
     rules = []
 
-    print("------------------------------------------------------------------------------------------------------")
-    print("\nFacts:")
-    print_facts(facts)
-    
-    print("\nRules:")
-    print_rules(rules)
-
     while True:
-        print("------------------------------------------------------------------------------------------------------")
-        choice = input("('f') add new fact, ('r') add new rule, ('g') generate and disp new fact(s), ('exit') to exit: ")
-        if choice.lower() == 'exit':
+        print("\n-----------------------------------------")
+        print("[1] Add facts\n[2] Add rules\n[3] Generate and display new facts\n[4] Done/Exit")
+        choice = input("\n")
+
+        # To exit
+        if choice == '4':
             break
         
         # Add Facts
-        elif choice.lower() == 'f':
+        elif choice == '1':
             ctr_fact = 1
             print("\nAdding Fact(s)...")
             while True:
@@ -67,23 +70,21 @@ if __name__ == "__main__":
                 if not fact_input:
                     print("Invalid input.")
                     continue
-                if fact_input.lower() == 'exit':
+                if fact_input == '4':
                     break
                 ctr_fact += 1
                 facts.append(fact_input)
             print("\nFact(s) added.\n")
-            print("\nCurrent Facts:")
             print_facts(facts)
-            print("\nCurrent Rules:")
             print_rules(rules)
             
         # Add Rules
-        elif choice.lower() == 'r':
+        elif choice == '2':
             ctr_rule = 1
-            print("Adding Rule(s)...")
+            print("\nAdding Rule(s)...")
             while True:
                 rule_input = input(f"Rule {ctr_rule}: ")
-                if rule_input.lower() == 'exit':
+                if rule_input == '4':
                     break
                 if "if" in rule_input and ", then" in rule_input:
                     premise, conclusion = rule_input.split(", then ")
@@ -91,21 +92,14 @@ if __name__ == "__main__":
                     rules.append((premise, conclusion))
                     ctr_rule += 1
                 else:
-                    print("Invalid rule format.")
-            print("Rule(s) added.\n")
-            print("\nCurrent Facts:")
+                    print("Invalid rule format. [if {premise}, then {conclusion}")
+            print("\nRule(s) added.\n")
             print_facts(facts)
-            print("\nCurrent Rules:")
             print_rules(rules)
         
         # Generate and display new facts    
-        elif choice.lower() == 'g':
-            print("\nAll Facts:")
-            facts = forward_chaining(facts, rules)
-            print_facts(facts)
-
-            print("\nAll Rules:")
-            print_rules(rules)
+        elif choice == '3':
+            print_facts(forward_chaining(facts, rules))
         else:
             print("Invalid choice.")
 
