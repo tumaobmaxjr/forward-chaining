@@ -107,7 +107,10 @@ The script will continue running until you choose to exit.
 
 An example of how to use the forward chaining inference engine is provided in the code. You can add facts, rules, and generate new facts based on the rules. For example:
 
-- Add new facts by choosing 'f'.
-- Add new rules by choosing 'r' and following the format: if <premises>, then <conclusion>.
-- Generate and display new facts by choosing 'g'.
+```
+[1] Add facts
+[2] Add rules
+[3] Generate and display new facts
+[4] Done/Exit
+```
 You can run the script and interact with it through the command line.
