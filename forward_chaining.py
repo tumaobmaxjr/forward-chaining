@@ -54,7 +54,7 @@ if __name__ == "__main__":
 
     while True:
         print("\n-----------------------------------------")
-        print("[1] Add facts\n[2] Add rules\n[3] Save \n[4] Generate and display new facts\n[5] Exit")
+        print("[1] Add facts\n[2] Add rules\n[3] Done Adding \n[4] Generate and display new facts\n[5] Exit")
         choice = input("\n")
 
         # To exit
