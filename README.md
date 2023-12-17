@@ -17,14 +17,14 @@ The provided Python code includes the following components:
 The rule-based system provides a menu-driven interface for users to interact with the system. Users can add facts, add rules, generate new facts, and exit the system.
 
 1. Adding Facts:
-  - Choose [1] from the menu.
-  - Input each fact and press 'Enter'.
-  - Enter '3' when done to return to the main menu.
+   - Choose [1] from the menu.
+   - Input each fact and press 'Enter'.
+   - Enter '3' when done to return to the main menu.
 2. Adding Rules:
-  - Choose [2] from the menu.
-  - Input rules in the format "if {premise}, then {conclusion}" and press 'Enter'.
-  - Enter '3' when done to return to the main menu.
+   - Choose [2] from the menu.
+   - Input rules in the format "if {premise}, then {conclusion}" and press 'Enter'.
+   - Enter '3' when done to return to the main menu.
 3. Generating New Facts:
-  - Choose [4] from the menu to see newly derived facts.
-4. Exiting the System:
-  - Choose [5] from the menu to exit the system.
+   - Choose [4] from the menu to see newly derived facts.
+5. Exiting the System:
+   - Choose [5] from the menu to exit the system.
