@@ -54,11 +54,11 @@ if __name__ == "__main__":
 
     while True:
         print("\n-----------------------------------------")
-        print("[1] Add facts\n[2] Add rules\n[3] Generate and display new facts\n[4] Done/Exit")
+        print("[1] Add facts\n[2] Add rules\n[3] Save \n[4] Generate and display new facts\n[5] Exit")
         choice = input("\n")
 
         # To exit
-        if choice == '4':
+        if choice == '5':
             break
         
         # Add Facts
@@ -70,7 +70,7 @@ if __name__ == "__main__":
                 if not fact_input:
                     print("Invalid input.")
                     continue
-                if fact_input == '4':
+                if fact_input == '3':
                     break
                 ctr_fact += 1
                 facts.append(fact_input)
@@ -84,7 +84,7 @@ if __name__ == "__main__":
             print("\nAdding Rule(s)...")
             while True:
                 rule_input = input(f"Rule {ctr_rule}: ")
-                if rule_input == '4':
+                if rule_input == '3':
                     break
                 if "if" in rule_input and ", then" in rule_input:
                     premise, conclusion = rule_input.split(", then ")
@@ -98,7 +98,7 @@ if __name__ == "__main__":
             print_rules(rules)
         
         # Generate and display new facts    
-        elif choice == '3':
+        elif choice == '4':
             print_facts(forward_chaining(facts, rules))
         else:
             print("Invalid choice.")
